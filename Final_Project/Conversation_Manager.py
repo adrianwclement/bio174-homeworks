@@ -5,7 +5,7 @@ from datetime import datetime
 import os
 
 
-class Convsersation_Manager:
+class Conversation_Manager:
 
     """
     Initializes the ConversationManager with the specified configurations
@@ -24,7 +24,7 @@ class Convsersation_Manager:
     Returns:
         None
     """
-    def __init__(self, api_key, base_url="https://api.openai.com/v1", history_folder="./Final_Project/past_conversations", history_file=None, default_model="gpt-3.5-turbo", default_temperature=0.7, default_max_tokens=150, token_budget=4096):
+    def __init__(self, api_key, base_url="https://api.openai.com/v1", history_folder="Past_Conversations", history_file=None, default_model="gpt-3.5-turbo", default_temperature=0.7, default_max_tokens=150, token_budget=4096):
         # Use OpenAI as default key
         self.client = OpenAI(api_key=api_key)
         self.base_url = base_url
@@ -57,7 +57,6 @@ class Convsersation_Manager:
         # Set default persona to be the normal assistant
         self.system_message = self.system_messages["normal_assistant"]
 
-        # TODO FIX!!!!!
         self.load_conversation_history()
 
 
@@ -284,3 +283,4 @@ class Convsersation_Manager:
         
         except Exception as e:
             print(f"An unexpected error occurred while resetting the conversation history: {e}")
+            
